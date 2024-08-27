@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #fff;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<h1>SIGN UP</h1>
+<form action="/signup" method="POST">
+    <label>Username:</label>
+    <input type="text" name="uname" required><br>
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
+    <label>Password:</label>
+    <input type="password" name="pwd" required><br>
+    <label>Confirm Password:</label>
+    <input type="password" name="conpwd" required><br>
+    <label>User Type:</label>
+    <select id="utype" name="utype">
+        <option value="Restaurant Owner">Restaurant Owner</option>
+        <option value="Buyer">Buyer</option>
+        <option value="Rider">Rider</option>
+    </select><br>
+    <input type="submit" value="Signup">
+</form>
+<h2>{{ error }}</h2>
+</body>
+</html>

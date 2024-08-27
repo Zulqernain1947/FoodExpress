@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Preference</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("https://images.unsplash.com/photo-1548940740-204726a19be3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=389&q=80");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 20px;
+        text-decoration-color: white;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter your Food Preference</h1>
+
+  <form action="/diet" method="post">
+    <input type="radio" id="Veg" name="foodPreference" value="Veg">
+    <label for="Veg">Veg</label><br>
+
+    <input type="radio" id="Non Veg" name="foodPreference" value="Non Veg">
+    <label for="Non Veg">Non Veg</label><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <br><br>
+  <a href="/logout">Logout</a>
+</body>
+</html>

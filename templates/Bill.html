@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <title>Calculate Bill</title>
+  <style>
+    #showbill {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  	<script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+</head>
+<body>
+<H1 id="totalBill">Welcome</H1><br>
+<button id="showbill">Show Selected Items</button><br>
+<p>Your Selected Items: </p> <br><br>
+<table id="show" border="2">
+</table>
+
+
+<script>
+        var myData
+        $(document.body).on('click',"#showbill",function (e) {
+                         $.ajax({type:"GET",
+                                url:"/getBill",
+                             success: function(result){
+                                        {#allData = result#}
+                                        {#myData = result.org#}
+                                        var disc = result.disc;
+                                        var ord = result.ord;
+                                        var totalprice = result.totalprice;
+                                        console.log(totalprice)
+                                 if(ord != null || ord != ""){
+
+                                    table = $('#show').DataTable( {
+                                        data: ord ,destroy: true,
+                                        columns: [
+                                            { data: "itemName" ,title:"Item" },
+                                            {data: "price" ,title:"Price per Item" },
+                                            { data: "quantity" ,title:"Quantity" },
+
+                                        ]
+                                    } );
+                                }
+                                 var bill = totalprice - disc;
+                                 $("#totalBill").text("Total Bill is " + bill);
+
+                          }});
+        });
+
+    </script>
+  <H2>Thank you for shopping with us! We hope you enjoyed your online food ordering experience.
+      If you have any further inquiries or require assistance, please don't hesitate to reach
+      out to our customer support. Have a great day! Goodbye!</H2>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="/addMenuesForm">Add Menues</a></li>
+                <li><a href="/updateMenueForm">Update Menues</a></li>
+                <li><a href="/showmenues">Show Menues</a></li>
+                <li><a href="/checkdetails">Check Details</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+            <h1 class="logo">Food Express</h1>
+        </div>
+    </nav>
+<h1>{{ name }} Restaurant Menu Items</h1>
+<table id="show" class="display" style="width:100%">
+    <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    {% for i in data[0]["menu"] %}
+    <tr>
+        <td>{{i["itemName"]}}</td>
+        <td>{{i["quantity"]}}</td>
+        <td>{{i["price"]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+  <footer id="footer">
+        <h2>Restraunt &copy; all rights reserved</h2>
+    </footer>
+<script>
+$(document).ready(function() {
+    $('#show').DataTable();
+    } );
+</script>
+<br><br>
+<a href="/logout">Logout</a>
+</body>
+</html>
